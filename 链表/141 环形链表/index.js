@@ -10,7 +10,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-const hasCycle = function(head) {
+const hasCycle = head => {
   if (!head || !head.next) {
       return false
   }

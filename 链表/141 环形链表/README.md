@@ -12,6 +12,44 @@
 - 比如链表环形至少需要两个节点  
 - 比如没有环的话快指针最终会指向链表末尾（即 fast 为 null 或 fast.next 为 null）
 
+```javascript
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+const hasCycle = head => {
+  if (!head || !head.next) {
+      return false
+  }
+
+  // 快慢指针（利用链表有环快慢指针必相遇的特点）
+  let slow = head
+  let fast = head
+
+  // 如果链表有环，则继续往前走
+  // 如果链表没有环，则最终快指针会抵达链表末端
+  while (fast && fast.next) {
+      // 慢指针每次往前走一步，慢指针每次往前走两步 
+      slow = slow.next
+      fast = fast.next.next
+      // 如果链表有环，则会在某个时刻相遇，即快慢指针指向节点相等，返回 true
+      if (slow === fast) {
+          return true
+      }
+  }
+
+  return false
+};
+```
+
 ### 141 环形链表 简单
 
 [原链接](https://leetcode-cn.com/problems/linked-list-cycle/)
