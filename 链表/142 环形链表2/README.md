@@ -15,6 +15,8 @@ x = n ( z + y ) + z
 另一个指针走一遍 n ( z + y ) + z 这段路  
 两个指针相遇的节点 就是 环的入口
 
+[分析](https://cloud.tencent.com/developer/article/1680926)
+
 - 时间复杂度 O(n)
 - 空间复杂度 O(1)
 
